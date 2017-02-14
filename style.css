@@ -6,6 +6,14 @@ body{
   color: white;
 }
 
-#list1{
+#list{
+  float:left;
+  text-align: left;
+  display: inline-block;
+
+}
+
+#list2{
+
   float:left;
 }
