@@ -1,0 +1,19 @@
+html{
+  background-color: blue;
+}
+
+body{
+  color: white;
+}
+
+#list{
+  float:left;
+  text-align: left;
+  display: inline-block;
+
+}
+
+#list2{
+
+  float:left;
+}
