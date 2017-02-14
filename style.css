@@ -6,14 +6,16 @@ body{
   color: white;
 }
 
-#list{
-  float:left;
-  text-align: left;
-  display: inline-block;
 
+#list1, #list2, #list3, #list4, #list5, #list6{
+  font-size: 30px;
+  float:left;
 }
 
-#list2{
+#list{
+  float: left;
+}
 
-  float:left;
+h1{
+  font-size: 60px;
 }

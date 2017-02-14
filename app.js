@@ -132,30 +132,51 @@ storeFive.genCookiesEachHour();
 console.log(storeFive.cookiesEachHour);
 //store five end
 
+//start of list creation on page
 for(var i = 0; i < storeHours.length; i++){
   var userElement = document.createElement('li'); //Step 1
-//userElement =<h1></h1>
-
+//userElement =<li></li>
   userElement.setAttribute('id', 'time'); //Step 2
-  //userElement = <h1 id = "irst-user-heading"></h1>
-
+  //userElement = <li id = "time"></li>
   userElement.textContent = storeHours[i];
-
-  var sectionEl = document.getElementById('list');
-
+  var sectionEl = document.getElementById('list1');
   sectionEl.appendChild(userElement); //step 3
 }
 
-for(var i = 0; i < storeHours.length; i++){
-  var userElement = document.createElement('li'); //Step 1
-//userElement =<h1></h1>
-
-  userElement.setAttribute('id', 'time'); //Step 2
-  //userElement = <h1 id = "irst-user-heading"></h1>
-
+for(var i = 0; i < storeHours.length; i++) {
+  var userElement = document.createElement('li');
+  userElement.setAttribute('id', 'StoreOne');
   userElement.textContent = storeOne.cookiesEachHour[i];
-
   var sectionEl = document.getElementById('list2');
+  sectionEl.appendChild(userElement); //step 3
+}
 
+for(var i = 0; i < storeHours.length; i++) {
+  var userElement = document.createElement('li');
+  userElement.setAttribute('id', 'StoreTwo');
+  userElement.textContent = storeTwo.cookiesEachHour[i];
+  var sectionEl = document.getElementById('list3');
+  sectionEl.appendChild(userElement); //step 3
+}
+
+for(var i = 0; i < storeHours.length; i++) {
+  var userElement = document.createElement('li');
+  userElement.setAttribute('id', 'StoreThree');
+  userElement.textContent = storeThree.cookiesEachHour[i];
+  var sectionEl = document.getElementById('list4');
+  sectionEl.appendChild(userElement); //step 3
+}
+for(var i = 0; i < storeHours.length; i++) {
+  var userElement = document.createElement('li');
+  userElement.setAttribute('id', 'StoreFour');
+  userElement.textContent = storeFour.cookiesEachHour[i];
+  var sectionEl = document.getElementById('list5');
+  sectionEl.appendChild(userElement); //step 3
+}
+for(var i = 0; i < storeHours.length; i++) {
+  var userElement = document.createElement('li');
+  userElement.setAttribute('id', 'StoreFive');
+  userElement.textContent = storeFive.cookiesEachHour[i];
+  var sectionEl = document.getElementById('list6');
   sectionEl.appendChild(userElement); //step 3
 }
