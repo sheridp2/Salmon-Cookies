@@ -4,12 +4,13 @@ console.log('-------------------------Constructor-------------------');
 //costructors have capitolized first letter, upper camel case;
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-function CookieStore(name, minCustomers, maxCustomers, avgCookies, hourlyCookies){
+function CookieStore(name, minCustomers, maxCustomers, avgCookies, hourlyCookies, dailyTotals){
   this.name = name;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgCookies = avgCookies;
   this.hourlyCookies = [];
+  this.dailyTotals = 0;
 }
 //calc random number
 CookieStore.prototype.cookiesHour = function() {
@@ -20,6 +21,7 @@ CookieStore.prototype.cookiesEachHour = function(){
   for(var i = 0; i < storeHours.length; i++){
     var sales = Math.floor(this.cookiesHour() * this.avgCookies);
     this.hourlyCookies.push(sales);
+    this.dailyTotals += sales;
   }
 };
 //add method to CookieStore that adds rows for each store
@@ -37,7 +39,12 @@ CookieStore.prototype.createRow = function(){
     var hourlySalesEl = document.createElement('td');
     hourlySalesEl.textContent = this.hourlyCookies[i];
     storeRowEl.appendChild(hourlySalesEl);
+
   }
+  var dailyTotalEl = document.createElement('td');
+  dailyTotalEl.textContent = this.dailyTotals;
+  storeRowEl.appendChild(dailyTotalEl);
+
 };
 
 var pikePlace = new CookieStore('Pike Place', 23, 65, 6.3);
@@ -63,6 +70,9 @@ function createToplabelRow(){
     hourOpenEl.textContent = storeHours[i];
     labelRowEl.appendChild(hourOpenEl);
   }
+  var dailyTotalHeaderEl = document.createElement('td');
+  dailyTotalHeaderEl.textContent = 'Daily Totals';
+  labelRowEl.appendChild(dailyTotalHeaderEl);
 }
 function createAllRows() {
   for(var i = 0; i < stores.length; i++){
@@ -98,7 +108,7 @@ function handleSubmit(event){
 
   var addedStore = new CookieStore(storeName, minCustomers, maxCustomers, avgCookies);
   // console.log(store);
-  stores.push(this.storeName);
+  addedStore.createRow();
   console.log(stores);
   console.log(addedStore);
   console.log('User Pressed Subit on Form!');
