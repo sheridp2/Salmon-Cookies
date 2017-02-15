@@ -6,21 +6,30 @@ body{
   color: white;
 }
 
-
-#list1, #list2, #list3, #list4, #list5, #list6{
-  font-size: 30px;
-  float:left;
-}
-
-#list{
-  float: left;
-}
-
-h1{
-  font-size: 60px;
-}
-
 #table{
   font-size: 30px;
+  margin: 20px;
+}
 
+tr, th, td{
+border: 2px solid white;
+padding: 5px;
+}
+
+
+#new-store-form{
+  width: 60%;
+}
+
+label, input{
+  display: block;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.form{
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
 }
