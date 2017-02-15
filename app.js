@@ -194,8 +194,16 @@ function CookieStore(name, minCustomers, maxCustomers, avgCookies, hourlyCookies
   this.hourlyCookies = [];
 }
 
-CookieStore.prototype.getAvgCookieCount = function(){
-  return Math.floor((Math.random() * this.range + 1) * this.avgCookies);
+CookieStore.prototype.cookiesHour = function() {
+  return(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers));
+};
+
+CookieStore.prototype.cookiesEachHour = function(){
+  for(var i = 0; i < storeHours.length; i++){
+    var sales = Math.floor(this.cookiesHour() * this.avgCookies);
+    this.hourlyCookies.push(sales);
+    console.log(sales);
+  }
 };
 
 var pikePlace = new CookieStore('Pike Place', 23, 65, 6.3);
@@ -205,30 +213,32 @@ var capitolHill = new CookieStore('Capitol Hill', 20, 38, 2.3);
 var alki = new CookieStore('Alki', 2, 16, 4.6);
 
 var stores = [pikePlace, seaTac, seattleCenter, capitolHill, alki];
+pikePlace.cookiesEachHour();
+console.log(stores.hourlyCookies);
 
-var tableEl = document.createElement('table');
-
-for(var i = 0; i < stores.length; i++){
-  var currentStores = stores[i];
-
-  var rowEl = document.createElement('tr');
-  tableEl.appendChild(rowEl);
-
-  var nameEl = document.createElement('th');
-  nameEl.textContent = currentStores.name;
-  rowEl.appendChild(nameEl);
-
-  var minCustEl = document.createElement('td');
-  minCustEl.textContent = currentStores.minCustomers;
-  rowEl.appendChild(minCustEl);
-
-  var maxCustEl = document.createElement('td');
-  maxCustEl.textContent = currentStores.maxCustomers;
-  rowEl.appendChild(maxCustEl);
-
-  var avgCookiesEl = document.createElement('td');
-  avgCookiesEl.textContent = currentStores.avgCookies;
-  rowEl.appendChild(avgCookiesEl);
-}
-
-document.body.appendChild(tableEl);
+// var tableEl = document.createElement('table');
+//
+// for(var i = 0; i < stores.length; i++){
+//   var currentStores = stores[i];
+//
+//   var rowEl = document.createElement('tr');
+//   tableEl.appendChild(rowEl);
+//
+//   var nameEl = document.createElement('th');
+//   nameEl.textContent = currentStores.name;
+//   rowEl.appendChild(nameEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStores.minCustomers;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStores.maxCustomers;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var avgCookiesEl = document.createElement('td');
+//   avgCookiesEl.textContent = currentStores.avgCookies;
+//   rowEl.appendChild(avgCookiesEl);
+// }
+//
+// document.body.appendChild(tableEl);
