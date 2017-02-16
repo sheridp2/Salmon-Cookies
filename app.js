@@ -88,14 +88,14 @@ console.log('-----------------Event Listeners--------------------');
 //get access to form from the DOM
 var storeFormEl = document.getElementById('new-store-form');
 
-storeFormEl.addEventListener('submit', handleSubmit);
+storeFormEl.addEventListener('submit', handleSubmit); // addEventListener is a method of HTML element node
 //press submit runs function handleSubmit, false prevents event capturing
 
 function handleSubmit(event){
-  event.preventDefault(); //prevents page from reloading/send to server
-  event.stopPropagation();//prevents click event on parent tags
+  event.preventDefault(); //prevents page from reloading/send to server, preventDefaultis a mthod of event
+  event.stopPropagation(); //prevents click event on parent tags, stopProp is a method of the event
 
-  var storeName = event.target.cookieStoreName.value;// event=eventlistener, target=target node"storeFormEl", cookieStoreNeme node within target node, value is input of node
+  var storeName = event.target.cookieStoreName.value;// event=eventlistener, target = element node"storeFormEl", cookieStoreName node within target node, value is input of node
   var minCustomers = parseInt(event.target.minCust.value); //gets minCust value, parseInt prevents input of string
   var maxCustomers = parseInt(event.target.maxCust.value);
   var avgCookies = parseFloat(event.target.avgCookies.value);
@@ -105,7 +105,7 @@ function handleSubmit(event){
   // console.log(maxCustomers);
   // console.log(avgCookies);
 
-  var addedStore = new CookieStore(storeName, minCustomers, maxCustomers, avgCookies);
+  var addedStore = new CookieStore(storeName, minCustomers, maxCustomers, avgCookies);//new instance of a CookieStore, arguments for the cookies store constructer
   // console.log(store);
   addedStore.createRow();
   console.log(stores);
