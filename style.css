@@ -1,11 +1,11 @@
-html{
-  background-color: blue;
-  background-size: cover;
-  background-image: url('background.jpg');
+*{
+  font-family: Sansita
 }
-
 body{
   color: white;
+  background-image: url('background.jpg');
+  background-size: 100%
+
 }
 
 #table{
@@ -42,9 +42,48 @@ label, input{
 
 .text{
 font-size: 50px;
+background-color: blue;
+display: inline-block;
 
 }
 
-.header {
-  content: url('salmon.png');
+.heading{
+  height: 200px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-size: 45px;
+  text-align: center;
+  margin-top: -50px;
+
+}
+
+.navbar{
+  font-size: 40px;
+  background-color: pink;
+  text-align: center;
+}
+
+.tab{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.storeinfo{
+  width: 400px;
+  float: left;
+  font-size: 30px;
+  background-color: lightgrey;
+  color: black;
+  opacity: .75;
+}
+.storeinfo div{
+  opacity: 1;
+}
+
+.sales{
+  font-size: 100px;
+}
+
+.box1{
+ display: inline-block;
 }
