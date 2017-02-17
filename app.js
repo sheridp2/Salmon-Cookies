@@ -31,6 +31,7 @@ CookieStore.prototype.cookiesEachHour = function(){
     this.hourlyCookies.push(sales);
     this.dailyTotals += sales;
   }
+  // console.log('this.hourlyCookies: ', this.hourlyCookies);
 };
 
 //add method to CookieStore that adds rows for each store
@@ -43,9 +44,9 @@ CookieStore.prototype.createRow = function(){
   storeNameEl.textContent = this.name;
   storeRowEl.appendChild(storeNameEl);
 
-  console.log('got here 1');
+  // console.log('got here 1');
   for(var i = 0; i < this.hourlyCookies.length; i++){
-    console.log('got here 2');
+    // console.log('got here 2');
     var hourlySalesEl = document.createElement('td');
     hourlySalesEl.textContent = this.hourlyCookies[i];
     storeRowEl.appendChild(hourlySalesEl);
@@ -108,6 +109,7 @@ function handleSubmit(event){
   console.log('User Pressed Subit on Form!');
   stores.push(addedStore);
   findTotal();
+  createTotalsRow();
 }
 
 console.log('--------------------------------Find totals start---------------------');
@@ -119,14 +121,13 @@ function findTotal(){
       // console.log(stores[j].hourlyCookies[i]);
       totalPerHour += stores[j].hourlyCookies[i];
     }
-    console.log('totalPerHour: ', totalPerHour);
+    // console.log('totalPerHour: ', totalPerHour);
     newHourlyTotals.push(totalPerHour);
   }
   hourlyTotals = newHourlyTotals;
-  console.log(hourlyTotals);
+  // console.log(hourlyTotals);
 }
-findTotal();
-console.log(hourlyTotals);
+// console.log(hourlyTotals);
 
 function createTotalsRow() {
   var totalsRowEl = document.createElement('tr');
@@ -135,16 +136,19 @@ function createTotalsRow() {
   var totalsNameEl = document.createElement('th');
   totalsNameEl.textContent = 'Hourly Totals';
   totalsRowEl.appendChild(totalsNameEl);
-  console.log('got here 5');
+  // console.log('got here 5');
 
   for(var i = 0; i < hourlyTotals.length; i++){
-    console.log(hourlyTotals[1]);
+    // console.log(hourlyTotals[i]);
     var hourTotalsEl = document.createElement('td');
-    hourTotalsEl.textContent = hourlyTotals[1];
+    hourTotalsEl.textContent = hourlyTotals[i];
     totalsRowEl.appendChild(hourTotalsEl);
-    console.log('got here 4');
+    // console.log('got here 4');
   }
 }
+
+
 createToplabelRow();
 createAllRows();
+findTotal();
 createTotalsRow();
