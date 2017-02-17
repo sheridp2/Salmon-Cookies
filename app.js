@@ -108,8 +108,11 @@ function handleSubmit(event){
   addedStore.createRow();
   console.log('User Pressed Subit on Form!');
   stores.push(addedStore);
+  // salesTable.deleteRow(-1);
+  deleteRow();
   findTotal();
   createTotalsRow();
+
 }
 
 console.log('--------------------------------Find totals start---------------------');
@@ -127,7 +130,7 @@ function findTotal(){
   hourlyTotals = newHourlyTotals;
   // console.log(hourlyTotals);
 }
-// console.log(hourlyTotals);
+console.log(hourlyTotals);
 
 function createTotalsRow() {
   var totalsRowEl = document.createElement('tr');
@@ -143,11 +146,18 @@ function createTotalsRow() {
     var hourTotalsEl = document.createElement('td');
     hourTotalsEl.textContent = hourlyTotals[i];
     totalsRowEl.appendChild(hourTotalsEl);
-    // console.log('got here 4');
   }
+  var totalTotal = 0;
+  for (var i = 0; i < hourlyTotals.length; i++){
+    totalTotal += hourlyTotals[i];
+  }
+  console.log(totalTotal);
+  var overallTotal = document.createElement('td');
+  overallTotal.textContent = totalTotal;
+  totalsRowEl.appendChild(overallTotal);
 }
 
-
+console.log(hourlyTotals);
 createToplabelRow();
 createAllRows();
 findTotal();
