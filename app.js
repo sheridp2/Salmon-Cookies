@@ -22,7 +22,7 @@ function CookieStore(name, minCustomers, maxCustomers, avgCookies, hourlyCookies
 }
 //calc random number
 CookieStore.prototype.cookiesHour = function() {
-  return(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers));
+  return(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers));
 };
 //creating an array for all times
 CookieStore.prototype.cookiesEachHour = function(){
@@ -108,8 +108,6 @@ function handleSubmit(event){
   addedStore.createRow();
   console.log('User Pressed Subit on Form!');
   stores.push(addedStore);
-  // salesTable.deleteRow(-1);
-  deleteRow();
   findTotal();
   createTotalsRow();
 
